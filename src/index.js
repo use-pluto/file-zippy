@@ -1,7 +1,7 @@
 import fs from "fs"
 import AdmZip from "adm-zip"
 
-export default function (directory) {
+export default function (directory, output) {
     if (!directory.endsWith("/")) {
         directory + "/"
     }
@@ -23,9 +23,6 @@ export default function (directory) {
         }
     }
 
-    // Write the zip file
-    zip.writeZip('./output.zip');
-
     // Function to add a directory recursively to a zip file
     function addDirectoryRecursively(zip, directory) {
         // Get the contents of the directory
@@ -42,4 +39,7 @@ export default function (directory) {
             }
         }
     }
+
+    // Write the zip file
+    zip.writeZip(output)
 }
