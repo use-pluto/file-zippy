@@ -5,6 +5,9 @@ export default function (directory, output) {
     if (!directory.endsWith("/")) {
         directory + "/"
     }
+    if (fs.readdirSync(directory).length === 0) {
+        fs.mkdirSync(directory)
+    }
     // Create a new zip file
     const zip = new AdmZip();
 
