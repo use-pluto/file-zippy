@@ -3,10 +3,10 @@ import AdmZip from "adm-zip"
 
 export default function (directory, output) {
     if (!directory.endsWith("/")) {
-        directory + "/"
+        directory += "/"
     }
-    if (fs.readdirSync(directory).length === 0) {
-        fs.mkdirSync(directory)
+    if (fs.readdirSync(output).length === 0) {
+        fs.mkdirSync(output)
     }
     // Create a new zip file
     const zip = new AdmZip();
